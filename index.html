@@ -785,36 +785,7 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:13
 <!-- ══ PWA: Sidebar backdrop (mobile only) ══ -->
 <div id="mobSidebarBackdrop" onclick="toggleMobSidebar(false)"></div>
 
-<!-- ══ Mobile: Floating Upload Button (always visible) ══ -->
-<div id="mobileFAB" onclick="toggleMobSidebar()" style="
-  display:none;
-  position:fixed;
-  bottom:90px;
-  right:20px;
-  width:70px;
-  height:70px;
-  border-radius:16px;
-  background:linear-gradient(135deg, #00d4aa, #0099ff);
-  border:none;
-  color:#000;
-  cursor:pointer;
-  box-shadow:0 4px 20px rgba(0,212,170,0.4);
-  z-index:999;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  font-family:var(--mono);
-">
-  <span style="font-size:24px;">📁</span>
-  <span style="font-size:9px;font-weight:600;margin-top:4px;">UPLOAD</span>
-</div>
 
-<style>
-@media(max-width:768px){
-  #mobileFAB{display:flex!important;}
-  .header-right #mobSidebarToggle{display:none!important;}
-}
-</style>
 
 <div class="overlay" id="overlay">
   <div class="prog-box">
@@ -8059,10 +8030,6 @@ console.log('[v17] Module Y: Role-Based Access Control ACTIVE — default role:'
     <span class="mob-nav-icon">📊</span>
     <span>Dashboard</span>
   </button>
-  <button class="mob-nav-btn touch-ripple" id="mbn-original" onclick="showTab('original');_mbnActive('original')">
-    <span class="mob-nav-icon">📋</span>
-    <span>Ledger</span>
-  </button>
   <button class="mob-nav-btn touch-ripple" id="mbn-matched" onclick="showTab('matched');_mbnActive('matched')">
     <span class="mob-nav-icon">✅</span>
     <span>Matched</span>
@@ -8075,7 +8042,11 @@ console.log('[v17] Module Y: Role-Based Access Control ACTIVE — default role:'
   </button>
   <button class="mob-nav-btn touch-ripple" id="mbn-manual" onclick="showTab('manual');_mbnActive('manual')">
     <span class="mob-nav-icon">🔗</span>
-    <span>Match</span>
+    <span>Manual</span>
+  </button>
+  <button class="mob-nav-btn touch-ripple" id="mbn-upload" onclick="toggleMobSidebar()">
+    <span class="mob-nav-icon">📁</span>
+    <span>Upload</span>
   </button>
 </nav>
 
