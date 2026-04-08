@@ -470,12 +470,14 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:13
     border-right:none;
     overflow-y:auto;
     -webkit-overflow-scrolling:touch;
-    padding-top:calc(var(--mob-header-h) + var(--mob-bankbar-h));
+    padding-top:calc(var(--mob-header-h) + var(--mob-bankbar-h) + 44px);
   }
   .sidebar.mob-open{
     transform:translateX(0);
     box-shadow:4px 0 24px rgba(0,0,0,.5);
   }
+  /* Show close button on mobile */
+  #mobCloseBtn{display:flex!important;align-items:center;gap:8px;}
   /* Sidebar overlay backdrop */
   #mobSidebarBackdrop{
     display:none;
@@ -828,6 +830,10 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:13
 <div class="main">
 <!-- SIDEBAR -->
 <div class="sidebar">
+  <!-- Mobile: Close/Back button -->
+  <button onclick="toggleMobSidebar(false)" style="display:none;width:100%;padding:12px;background:var(--surface2);border:none;border-bottom:1px solid var(--border);color:var(--text);cursor:pointer;font-size:18px;text-align:left;" id="mobCloseBtn">
+    ← Back
+  </button>
   <div class="sb-section" style="background:rgba(0,212,170,.06);border-bottom:1px solid rgba(0,212,170,.2);">
     <div class="sb-label">Active Bank</div>
     <div id="activeBankName" style="font-family:var(--mono);font-size:14px;font-weight:600;color:var(--accent);">— None —</div>
