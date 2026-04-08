@@ -421,7 +421,13 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:13
   }
   .header-right{gap:6px;}
   /* Hide secondary header buttons on mobile — moved to bottom nav or menus */
-  #devModeBtn,.badge-green{display:none !important;}
+  #devModeBtn,.badge-green,.pwa-storage-badge,#storageInfo{display:none !important;}
+  /* Show Import button prominently on mobile */
+  .header > div:first-child > button {
+    min-height:36px;
+    padding:6px 14px;
+    font-size:12px;
+  }
   /* Make touch targets larger */
   .header-right .btn-sm{
     min-height:36px;min-width:36px;padding:6px 10px;
@@ -797,8 +803,9 @@ body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:13
 </div>
 
 <div class="header" style="padding:5px 14px;min-height:0;">
-  <div style="display:flex;align-items:center;gap:10px;">
+  <div style="display:flex;align-items:center;gap:8px;">
     <span style="font-family:var(--mono);font-size:11px;font-weight:700;color:var(--accent);letter-spacing:.1em;">RECON</span>
+    <button onclick="toggleMobSidebar()" style="background:rgba(0,212,170,.15);border:1px solid var(--accent);color:var(--accent);padding:3px 10px;border-radius:4px;font-family:var(--mono);font-size:10px;font-weight:600;cursor:pointer;">📁 Import</button>
     <span id="wInlineStatus" style="font-family:var(--mono);font-size:10px;color:var(--text3)" id="statusBadge">v16 · Ready</span>
   </div>
   <div class="header-right">
@@ -8043,10 +8050,6 @@ console.log('[v17] Module Y: Role-Based Access Control ACTIVE — default role:'
   <button class="mob-nav-btn touch-ripple" id="mbn-manual" onclick="showTab('manual');_mbnActive('manual')">
     <span class="mob-nav-icon">🔗</span>
     <span>Manual</span>
-  </button>
-  <button class="mob-nav-btn touch-ripple" id="mbn-upload" onclick="toggleMobSidebar()">
-    <span class="mob-nav-icon">📁</span>
-    <span>Upload</span>
   </button>
 </nav>
 
